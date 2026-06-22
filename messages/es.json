@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "artisans": "Artesanos",
+    "marketplace": "Marketplace",
+    "about": "Sobre nosotros",
+    "contact": "Contacto",
+    "apply": "Únete como productor"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "back": "Volver",
+    "language": "Idioma"
+  },
+  "home": {
+    "meta": {
+      "title": "G·Artisans — Marketplace de productores sostenibles Made in Europe",
+      "description": "Únete a G·Artisans, la plataforma de referencia para productores sostenibles y artesanos europeos. Distribuye tus productos a compradores que valoran lo auténtico."
+    },
+    "hero": {
+      "headline": "Tu taller, en el escaparate que merece.",
+      "subheadline": "G·Artisans conecta productores sostenibles europeos con compradores que valoran lo auténtico.",
+      "cta_primary": "Quiero ser productor",
+      "cta_secondary": "Saber más"
+    }
+  },
+  "apply": {
+    "meta": {
+      "title": "Únete como productor fundador — G·Artisans",
+      "description": "Solicita tu plaza como uno de los 50 productores fundadores de G·Artisans. Plazas limitadas."
+    }
+  },
+  "form": {
+    "errors": {
+      "generic": "Ha ocurrido un error. Por favor, inténtalo de nuevo o escríbenos a hola@g-artisans.com",
+      "rateLimit": "Has enviado demasiadas solicitudes. Por favor, espera unos minutos."
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 G·Artisans · Alternative Green Energy Holdco S.L."
+  }
+}

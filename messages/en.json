@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "artisans": "Artisans",
+    "marketplace": "Marketplace",
+    "about": "About",
+    "contact": "Contact",
+    "apply": "Join as a producer"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "back": "Back",
+    "language": "Language"
+  },
+  "home": {
+    "meta": {
+      "title": "G·Artisans — Sustainable Artisan Marketplace Made in Europe",
+      "description": "Join G·Artisans, the reference platform for sustainable producers and European artisans. Reach buyers who value authentic, handmade products."
+    },
+    "hero": {
+      "headline": "Your craft, in the marketplace it deserves.",
+      "subheadline": "G·Artisans connects European sustainable producers with buyers who value authentic, handmade goods.",
+      "cta_primary": "I want to join",
+      "cta_secondary": "Learn more"
+    }
+  },
+  "apply": {
+    "meta": {
+      "title": "Join as a founding producer — G·Artisans",
+      "description": "Apply for your spot as one of G·Artisans' 50 founding producers. Limited spots available."
+    }
+  },
+  "form": {
+    "errors": {
+      "generic": "An error occurred. Please try again or email us at hola@g-artisans.com",
+      "rateLimit": "Too many requests. Please wait a few minutes and try again."
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 G·Artisans · Alternative Green Energy Holdco S.L."
+  }
+}
