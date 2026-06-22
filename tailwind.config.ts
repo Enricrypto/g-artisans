@@ -24,7 +24,7 @@ const config: Config = {
         rule: '#E4DDD4',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'serif'],
+        display: ['Unbounded', 'sans-serif'],
         sans: ['Jost', 'sans-serif'],
       },
       borderRadius: {

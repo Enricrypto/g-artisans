@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -23,7 +23,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 300;
 }
 
@@ -33,6 +33,34 @@ button {
 
 button:hover {
   opacity: 0.88;
+}
+
+@layer components {
+  /* Typography Components */
+
+  .h1 {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-light leading-tight;
+  }
+
+  .h2 {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-light leading-tight;
+  }
+
+  .h3 {
+    @apply font-display text-2xl md:text-3xl lg:text-4xl font-light leading-tight;
+  }
+
+  .body {
+    @apply font-sans text-base md:text-lg leading-relaxed;
+  }
+
+  .body-small {
+    @apply font-sans text-sm md:text-base leading-relaxed;
+  }
+
+  .label {
+    @apply font-sans text-xs md:text-sm font-semibold uppercase tracking-ui;
+  }
 }
 
 /* Skip link for accessibility */
