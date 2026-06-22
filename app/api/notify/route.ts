@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate with Zod
-    const validated = buyerNotifySchema.parse(body);
+    buyerNotifySchema.parse(body);
 
     // TODO: Rate limit check
     // TODO: Check if email already exists

@@ -1,7 +1,9 @@
 # G·Artisans Landing Page — Implementation Phases
 
 ## Overview
+
 This document breaks down the G·Artisans landing page into logical implementation phases. Each phase will use the **Feature Factory** workflow:
+
 1. Researcher (explore codebase)
 2. Story Writer (define user story)
 3. Spec Writer (technical brief)
@@ -13,13 +15,15 @@ This document breaks down the G·Artisans landing page into logical implementati
 
 ---
 
-## Phase 1: Design System & Component Foundation
+## Phase 1: Design System & Component Foundation (DONE)
+
 **Status:** ⬜ Not Started  
 **Priority:** 🔴 Critical (blocks all other phases)  
 **Complexity:** Medium  
 **Duration:** 1–2 hours
 
 ### What's Included
+
 - Tailwind design tokens validation (colors, typography, spacing)
 - Base component library:
   - Button variants (Primary Orange, Secondary Green, Outline Orange, Outline Dark)
@@ -31,12 +35,14 @@ This document breaks down the G·Artisans landing page into logical implementati
 - Icon system (Lucide React integration)
 
 ### Deliverables
+
 - ✅ `tailwind.config.ts` validated and documented
 - ✅ Component library in `src/components/ui/` (Button, Card, Badge, Accent shapes)
 - ✅ Storybook stories or component documentation
 - ✅ Spacing/typography utility classes
 
 ### Files to Touch
+
 ```
 src/components/ui/Button.tsx
 src/components/ui/Card.tsx
@@ -47,6 +53,7 @@ src/styles/globals.css
 ```
 
 ### Acceptance Criteria
+
 - [ ] All 4 button variants render correctly with proper colors & hover states
 - [ ] Cards render with configurable rotation, border, and spacing
 - [ ] Typography scales correctly (H1–H6, body, small)
@@ -56,6 +63,7 @@ src/styles/globals.css
 ---
 
 ## Phase 2: Hero Section & Navigation
+
 **Status:** ⬜ Not Started  
 **Dependency:** Phase 1 ✅  
 **Priority:** 🔴 Critical  
@@ -63,6 +71,7 @@ src/styles/globals.css
 **Duration:** 1–2 hours
 
 ### What's Included
+
 - Navigation header (logo, menu, language toggle ES|EN, Login/Join buttons)
 - Hero section:
   - Oversized headline (72px Cormorant)
@@ -73,12 +82,14 @@ src/styles/globals.css
 - Mobile responsiveness (mobile menu toggle)
 
 ### Deliverables
+
 - ✅ `src/components/sections/Navigation.tsx`
 - ✅ `src/components/sections/Hero.tsx`
 - ✅ Mobile nav toggle with smooth animation
 - ✅ Bilingual content structure (ES/EN via next-intl)
 
 ### Files to Touch
+
 ```
 src/components/sections/Navigation.tsx
 src/components/sections/Hero.tsx
@@ -89,6 +100,7 @@ messages/en.json
 ```
 
 ### Acceptance Criteria
+
 - [ ] Hero headline renders at 72px with Cormorant Garamond
 - [ ] Navigation menu toggles on mobile (< 640px breakpoint)
 - [ ] Language selector (ES|EN) works and updates content
@@ -100,6 +112,7 @@ messages/en.json
 ---
 
 ## Phase 3: Producer Showcase & Featured Artisans
+
 **Status:** ⬜ Not Started  
 **Dependency:** Phase 1 ✅  
 **Priority:** 🔴 Critical  
@@ -107,6 +120,7 @@ messages/en.json
 **Duration:** 1–2 hours
 
 ### What's Included
+
 - "Featured Artisans" section:
   - Grid layout (3–4 columns, responsive)
   - Producer cards with:
@@ -119,12 +133,14 @@ messages/en.json
 - Whitespace and spacing from design inspiration
 
 ### Deliverables
+
 - ✅ `src/components/sections/ProducerShowcase.tsx`
 - ✅ `src/components/ProducerCard.tsx`
 - ✅ Mock producer data or integration point for Airtable
 - ✅ Responsive grid layout (mobile: 1 col, tablet: 2 col, desktop: 3–4 col)
 
 ### Files to Touch
+
 ```
 src/components/sections/ProducerShowcase.tsx
 src/components/ProducerCard.tsx
@@ -133,6 +149,7 @@ src/lib/airtable.ts (or data stub)
 ```
 
 ### Acceptance Criteria
+
 - [ ] Producer cards render in responsive grid (1–3–4 columns)
 - [ ] Each card includes image, name, discipline, and accent shape
 - [ ] Cards are rotated -2° to -3° (CSS transform)
@@ -145,6 +162,7 @@ src/lib/airtable.ts (or data stub)
 ---
 
 ## Phase 4: Application Form & Validation
+
 **Status:** ⬜ Not Started  
 **Dependency:** Phase 1 ✅  
 **Priority:** 🔴 Critical  
@@ -152,6 +170,7 @@ src/lib/airtable.ts (or data stub)
 **Duration:** 2–3 hours
 
 ### What's Included
+
 - Producer application form (`/apply` page):
   - Form fields (name, email, craft discipline, bio, photos, etc. per TRD Section 3)
   - React Hook Form + Zod validation (client + server)
@@ -167,6 +186,7 @@ src/lib/airtable.ts (or data stub)
 - Error handling & retries (exponential backoff for 429)
 
 ### Deliverables
+
 - ✅ `src/app/apply/page.tsx`
 - ✅ `src/app/api/producers/apply/route.ts`
 - ✅ `src/components/sections/ProducerForm.tsx`
@@ -176,6 +196,7 @@ src/lib/airtable.ts (or data stub)
 - ✅ `.env.example` updated with Airtable + Resend keys
 
 ### Files to Touch
+
 ```
 src/app/apply/page.tsx
 src/app/api/producers/apply/route.ts
@@ -188,6 +209,7 @@ src/lib/rateLimit.ts
 ```
 
 ### Acceptance Criteria
+
 - [ ] Form renders with all fields from TRD Section 3
 - [ ] Client-side validation works (Zod + React Hook Form)
 - [ ] Honeypot field is hidden (off-screen, not display:none)
@@ -203,6 +225,7 @@ src/lib/rateLimit.ts
 ---
 
 ## Phase 5: Additional Pages & Sections
+
 **Status:** ⬜ Not Started  
 **Dependency:** Phase 2, Phase 3 ✅  
 **Priority:** 🟡 High  
@@ -210,6 +233,7 @@ src/lib/rateLimit.ts
 **Duration:** 2–3 hours
 
 ### What's Included
+
 - About page (`/about`, `/en/about`):
   - Mission statement + brand story
   - Team section (founder bios, photos grid)
@@ -231,6 +255,7 @@ src/lib/rateLimit.ts
   - Links, legal, social media
 
 ### Deliverables
+
 - ✅ `src/app/about/page.tsx`, `src/app/en/about/page.tsx`
 - ✅ `src/app/faq/page.tsx`, `src/app/en/faq/page.tsx`
 - ✅ `src/app/producers/page.tsx`, `src/app/en/producers/page.tsx`
@@ -239,6 +264,7 @@ src/lib/rateLimit.ts
 - ✅ `src/components/Accordion.tsx`
 
 ### Files to Touch
+
 ```
 src/app/about/page.tsx
 src/app/en/about/page.tsx
@@ -254,6 +280,7 @@ messages/en.json
 ```
 
 ### Acceptance Criteria
+
 - [ ] About page renders with mission, story, team sections
 - [ ] FAQ page has accordion component working (expand/collapse)
 - [ ] GA4 event fired on FAQ expand (`faq_expand`)
@@ -267,6 +294,7 @@ messages/en.json
 ---
 
 ## Phase 6: SEO, Analytics & Final Polish
+
 **Status:** ⬜ Not Started  
 **Dependency:** All phases ✅  
 **Priority:** 🟡 High  
@@ -274,6 +302,7 @@ messages/en.json
 **Duration:** 1–2 hours
 
 ### What's Included
+
 - SEO & OG tags:
   - Page titles, meta descriptions (unique per page)
   - Open Graph images (1200×630px) per page
@@ -299,6 +328,7 @@ messages/en.json
 - Deployment to Vercel (staging + production)
 
 ### Deliverables
+
 - ✅ `next.config.js` with security headers + CSP
 - ✅ `src/app/layout.tsx` with GA4 script + OG tags
 - ✅ Schema markup JSON-LD in components
@@ -309,6 +339,7 @@ messages/en.json
 - ✅ WCAG audit checklist completed
 
 ### Files to Touch
+
 ```
 next.config.js
 src/app/layout.tsx
@@ -321,6 +352,7 @@ public/sitemap.xml (or script to generate)
 ```
 
 ### Acceptance Criteria
+
 - [ ] Every page has unique title, meta description, OG image
 - [ ] Schema markup (Organization, FAQPage, etc.) validates via schema.org
 - [ ] GA4 events fire correctly on form submit, CTA click, language switch, FAQ expand
@@ -356,6 +388,7 @@ Phase 6 (SEO + Analytics + Polish)
 ```
 
 **Each phase uses the Feature Factory workflow:**
+
 1. Run Researcher → explore current codebase
 2. Write Story → define user story & acceptance criteria
 3. Write Brief → technical specification

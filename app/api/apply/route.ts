@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Validate with Zod
-    const validated = applySchema.parse(body);
+    applySchema.parse(body);
 
     // TODO: Rate limit check (3 req/hour per IP)
     // TODO: Check available spots

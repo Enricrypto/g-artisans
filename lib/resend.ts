@@ -33,7 +33,7 @@ export async function sendProducerConfirmation(
 
 export async function sendInternalNotification(
   producerData: Record<string, any>,
-  locale: string,
+  _locale: string,
 ) {
   const subject = `Nueva solicitud de productor: ${producerData.fullName}`;
 

@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate with Zod
-    const validated = contactSchema.parse(body);
+    contactSchema.parse(body);
 
     // TODO: Rate limit check (5 req/hour per IP)
     // TODO: Send internal notification email
