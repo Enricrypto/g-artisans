@@ -8,65 +8,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    @page {
+      margin: 0;
+      size: A4;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      height: 100%;
+    }
+
     body {
       font-family: 'Jost', sans-serif;
-      background: #f0f0f0;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
+      background: white;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      text-align: center;
     }
 
     .info-panel {
       background: white;
       border: 1px solid #e4ddd4;
-      border-radius: 12px;
-      padding: 2rem;
+      border-radius: 8px;
+      padding: 1rem;
       max-width: 600px;
-      margin-bottom: 2rem;
+      margin-bottom: 0.5rem;
     }
 
     .info-panel h1 {
       font-family: 'Unbounded', sans-serif;
-      font-size: 28px;
+      font-size: 18px;
       color: #1a2e20;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     .info-panel p {
-      font-size: 13px;
+      font-size: 11px;
       color: #7a7a6e;
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
     }
 
     .print-info {
       background: #f5f0e8;
-      border-left: 4px solid #c4532a;
-      padding: 1rem;
-      font-size: 12px;
+      border-left: 3px solid #c4532a;
+      padding: 0.5rem;
+      font-size: 9px;
       color: #7a7a6e;
-      margin-top: 1rem;
-      border-radius: 4px;
+      margin-top: 0.3rem;
+      border-radius: 3px;
+      line-height: 1.2;
     }
 
     .print-info strong {
       color: #1a2e20;
+      font-size: 9px;
     }
 
     /* BUSINESS CARD STYLES */
     .cards-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      page-break-after: always;
+      width: 100%;
+      height: 297mm;
+    }
+
+    @media print {
+      .info-panel {
+        display: block;
+        margin: 0 auto;
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 600px;
+        page-break-before: always;
+        page-break-after: avoid;
+      }
+
+      .print-instructions {
+        margin: 0 auto;
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 900px;
+        page-break-after: avoid;
+      }
+
+      .footer {
+        page-break-before: avoid;
+      }
     }
 
     @media (max-width: 1200px) {
@@ -92,8 +130,8 @@
 
     /* BUSINESS CARD */
     .business-card {
-      width: 350px;
-      height: 225px;
+      width: 310px;
+      height: 200px;
       /* Standard: 85mm × 55mm = 315px × 203px at 96 DPI */
       /* With bleed: 89mm × 59mm = 330px × 219px */
       background: white;
@@ -181,10 +219,25 @@
     }
 
     .card-back .header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding-bottom: 1rem;
+      position: relative;
+      text-align: center;
+      padding-bottom: 0;
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .card-back .logo-symbol {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .card-back .header > div:last-child {
+      text-align: center;
+      padding-top: 0.2rem;
     }
 
     .card-back .logo-symbol {
@@ -195,7 +248,7 @@
 
     .card-back .header-text {
       font-family: 'Unbounded', sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 400;
       letter-spacing: 3px;
       color: #f5f0e8;
@@ -205,8 +258,10 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      flex-grow: 1;
       justify-content: flex-start;
+      text-align: left;
+      margin-top: 1rem;
+      margin-bottom: auto;
     }
 
     .card-back .tagline {
@@ -218,12 +273,12 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: auto;
-      padding-top: 1rem;
+      padding-top: 0.5rem;
     }
 
     .contact-item {
       font-family: 'Jost', sans-serif;
-      font-size: 9px;
+      font-size: 10px;
       color: #f5f0e8;
       line-height: 1.4;
       border: none;
@@ -233,13 +288,15 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #c4532a;
+      color: #E8754A;
       margin-bottom: 0.2rem;
+      font-size: 8px;
     }
 
     .contact-value {
       font-weight: 300;
-      margin-left: 0.5rem;
+      margin-left: 0;
+      font-size: 10px;
     }
 
     /* RULER/MEASUREMENTS */
@@ -254,28 +311,30 @@
     .print-instructions {
       background: white;
       border: 1px solid #e4ddd4;
-      border-radius: 12px;
-      padding: 2rem;
+      border-radius: 8px;
+      padding: 1rem;
       max-width: 900px;
-      margin-top: 2rem;
+      margin-top: 0;
     }
 
     .print-instructions h2 {
       font-family: 'Unbounded', sans-serif;
-      font-size: 24px;
+      font-size: 14px;
       color: #1a2e20;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     .print-instructions ol {
       list-style-position: inside;
-      line-height: 1.8;
+      line-height: 1.3;
       color: #7a7a6e;
-      font-size: 13px;
+      font-size: 10px;
+      margin-left: 0;
     }
 
     .print-instructions li {
-      margin-bottom: 1rem;
+      margin-bottom: 0.3rem;
+      margin-left: -1.5rem;
     }
 
     .print-instructions strong {
@@ -285,15 +344,15 @@
     .specs-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
     }
 
     .specs-table th,
     .specs-table td {
-      padding: 0.75rem;
+      padding: 0.3rem 0.5rem;
       text-align: left;
       border-bottom: 1px solid #e4ddd4;
-      font-size: 12px;
+      font-size: 9px;
     }
 
     .specs-table th {
@@ -319,53 +378,54 @@
       background: #c4532a;
       color: white;
       border: none;
-      padding: 1rem 2rem;
+      padding: 0.5rem 1.5rem;
       border-radius: 40px;
       font-family: 'Jost', sans-serif;
-      font-size: 14px;
+      font-size: 10px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       cursor: pointer;
       transition: opacity 0.2s;
-      margin-top: 2rem;
+      margin-top: 0.5rem;
+      display: none;
     }
 
     .download-button:hover {
       opacity: 0.88;
     }
+
+    .footer {
+      display: none;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        gap: 0;
+        background: white;
+      }
+      .card-title {
+        display: none;
+      }
+      .measurements {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="info-panel">
-    <h1>G·Artisans Business Cards</h1>
-    <p><strong>Name:</strong> Gina Gandara</p>
-    <p><strong>Title:</strong> Directora</p>
-    <p><strong>Company:</strong> G·Artisans</p>
-    <p><strong>Email:</strong> contacto@g-artisans.com</p>
-    <p><strong>Phone:</strong> +34 654 885 529</p>
-    <p><strong>Tagline:</strong> Made in Europe · Sustainable · Handcrafted</p>
-    <div class="print-info">
-      <strong>📋 Print Specifications:</strong><br>
-      • Trim Size: 85mm × 55mm (3.5" × 2")<br>
-      • With Bleed: 89mm × 59mm<br>
-      • Safe Zone: 81mm × 51mm (3mm from edges)<br>
-      • Resolution: 300 DPI minimum<br>
-      • Format: RGB for screen / CMYK for print
-    </div>
-  </div>
-
   <div class="cards-container">
     <!-- CARD 1: FRONT SIDE -->
     <div class="card-wrapper">
-      <div class="card-title">Front Side</div>
+      <div class="card-title">Frente</div>
       <div class="business-card card-front">
         <div class="card-content">
           <div class="logo">
             <!-- Logo Symbol -->
             <svg class="logo-symbol" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="#C4532A" stroke-width="2"/>
-              <text x="50" y="65" font-size="60" font-family="'Cormorant Garamond', serif" font-weight="300" fill="#1A2E20" text-anchor="middle">G</text>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#E8754A" stroke-width="2"/>
+              <text x="50" y="50" font-size="60" font-family="'Cormorant Garamond', serif" font-weight="300" fill="#1A2E20" text-anchor="middle" dominant-baseline="central">G</text>
             </svg>
             <!-- Logo Text -->
             <div class="logo-text">G·ARTISANS</div>
@@ -373,24 +433,24 @@
           <div class="tagline">MERCADO ARTESANAL SOSTENIBLE</div>
         </div>
       </div>
-      <div class="measurements">85mm × 55mm (Trim) | 330px × 203px (Screen)</div>
+      <div class="measurements">85mm × 55mm (Corte) | 310px × 200px (Pantalla)</div>
     </div>
 
     <!-- CARD 2: BACK SIDE -->
     <div class="card-wrapper">
-      <div class="card-title">Back Side</div>
+      <div class="card-title">Reverso</div>
       <div class="business-card card-back">
         <div class="card-content">
           <div class="header">
             <!-- Logo Symbol -->
             <svg class="logo-symbol" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="#C4532A" stroke-width="2"/>
-              <text x="50" y="65" font-size="60" font-family="'Cormorant Garamond', serif" font-weight="300" fill="#F5F0E8" text-anchor="middle">G</text>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#E8754A" stroke-width="2"/>
+              <text x="50" y="50" font-size="60" font-family="'Cormorant Garamond', serif" font-weight="300" fill="#F5F0E8" text-anchor="middle" dominant-baseline="central">G</text>
             </svg>
             <!-- Name and Title -->
             <div>
               <div class="header-text" style="font-size: 14px; letter-spacing: 2px;">GINA GANDARA</div>
-              <div style="font-family: 'Jost', sans-serif; font-size: 8px; color: #c4532a; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Directora</div>
+              <div style="font-family: 'Jost', sans-serif; font-size: 10px; color: #E8754A; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Directora</div>
             </div>
           </div>
 
@@ -400,89 +460,107 @@
               <div class="contact-value">contacto@g-artisans.com</div>
             </div>
             <div class="contact-item">
-              <div class="contact-label">Phone</div>
+              <div class="contact-label">Teléfono</div>
               <div class="contact-value">+34 654 885 529</div>
             </div>
           </div>
 
-          <div class="tagline">MERCADO ARTESANAL SOSTENIBLE</div>
+          <div class="tagline">www.g-artisans.com</div>
         </div>
       </div>
-      <div class="measurements">85mm × 55mm (Trim) | 330px × 203px (Screen)</div>
+      <div class="measurements">85mm × 55mm (Corte) | 310px × 200px (Pantalla)</div>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <h1>Tarjetas de Visita G·Artisans</h1>
+    <p><strong>Nombre:</strong> Gina Gandara</p>
+    <p><strong>Cargo:</strong> Directora</p>
+    <p><strong>Empresa:</strong> G·Artisans</p>
+    <p><strong>Email:</strong> contacto@g-artisans.com</p>
+    <p><strong>Teléfono:</strong> +34 654 885 529</p>
+    <p><strong>Eslogan:</strong> Hecho en Europa · Sostenible · Artesanal</p>
+    <div class="print-info">
+      <strong>📋 Especificaciones de Impresión:</strong><br>
+      • Tamaño de Corte: 85mm × 55mm (3.5" × 2")<br>
+      • Con Sangrado: 89mm × 59mm<br>
+      • Zona Segura: 81mm × 51mm (3mm desde bordes)<br>
+      • Resolución: 300 DPI mínimo<br>
+      • Formato: RGB para pantalla / CMYK para impresión
     </div>
   </div>
 
   <div class="print-instructions">
-    <h2>Printing Instructions</h2>
+    <h2>Instrucciones de Impresión</h2>
     <ol>
-      <li><strong>Export Settings:</strong> Save as PDF or high-resolution image (300 DPI minimum)</li>
-      <li><strong>Color Mode:</strong> Convert RGB to CMYK for accurate print colors</li>
-      <li><strong>Bleed Area:</strong> The dashed border shows the bleed area (2mm beyond trim)</li>
-      <li><strong>Safe Zone:</strong> Keep all content within 3mm of the edge (inside the solid border)</li>
-      <li><strong>Quantity:</strong> Standard print run is 250, 500, or 1000 cards</li>
-      <li><strong>Paper Stock:</strong> Recommend 350gsm cardstock for premium feel</li>
-      <li><strong>Finish:</strong> Gloss, matte, or spot UV on logo recommended</li>
-      <li><strong>Printer Notes:</strong> Send both front and back as separate files or double-sided print</li>
+      <li><strong>Configuración de Exportación:</strong> Guardar como PDF o imagen de alta resolución (300 DPI mínimo)</li>
+      <li><strong>Modo de Color:</strong> Convertir RGB a CMYK para colores de impresión precisos</li>
+      <li><strong>Área de Sangrado:</strong> El borde punteado muestra el área de sangrado (2mm más allá del corte)</li>
+      <li><strong>Zona Segura:</strong> Mantener todo contenido dentro de 3mm del borde (dentro del borde sólido)</li>
+      <li><strong>Cantidad:</strong> La tirada estándar es de 250, 500 o 1000 tarjetas</li>
+      <li><strong>Papel:</strong> Se recomienda cartulina de 350gsm para un acabado premium</li>
+      <li><strong>Acabado:</strong> Se recomienda brillo, mate o UV spot en el logo</li>
+      <li><strong>Notas para Impresor:</strong> Enviar frente y reverso como archivos separados o impresión a doble cara</li>
     </ol>
 
     <table class="specs-table">
       <thead>
         <tr>
-          <th>Specification</th>
-          <th>Value</th>
-          <th>Notes</th>
+          <th>Especificación</th>
+          <th>Valor</th>
+          <th>Notas</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Trim Size</td>
+          <td>Tamaño de Corte</td>
           <td>85mm × 55mm</td>
-          <td>Standard business card (3.5" × 2")</td>
+          <td>Tarjeta de visita estándar (3.5" × 2")</td>
         </tr>
         <tr>
-          <td>With Bleed</td>
+          <td>Con Sangrado</td>
           <td>89mm × 59mm</td>
-          <td>+2mm on all sides for cutting</td>
+          <td>+2mm en todos los lados para corte</td>
         </tr>
         <tr>
-          <td>Safe Zone</td>
+          <td>Zona Segura</td>
           <td>81mm × 51mm</td>
-          <td>-3mm from edges (keep important content here)</td>
+          <td>-3mm desde bordes (mantener contenido importante aquí)</td>
         </tr>
         <tr>
-          <td>Resolution</td>
+          <td>Resolución</td>
           <td>300 DPI</td>
-          <td>Minimum for print quality</td>
+          <td>Mínimo para calidad de impresión</td>
         </tr>
         <tr>
-          <td>Color Mode</td>
+          <td>Modo de Color</td>
           <td>CMYK</td>
-          <td>For accurate print colors</td>
+          <td>Para colores de impresión precisos</td>
         </tr>
         <tr>
-          <td>Primary Color</td>
+          <td>Color Primario</td>
           <td>#C4532A (Naranja)</td>
           <td>RGB: 196,83,42 | CMYK: 0,58,79,23</td>
         </tr>
         <tr>
-          <td>Secondary Color</td>
+          <td>Color Secundario</td>
           <td>#1A2E20 (Noche)</td>
           <td>RGB: 26,46,32 | CMYK: 75,45,54,60</td>
         </tr>
         <tr>
-          <td>Typography</td>
+          <td>Tipografía</td>
           <td>Cormorant Garamond + Jost</td>
-          <td>Both available from Google Fonts</td>
+          <td>Disponibles en Google Fonts</td>
         </tr>
       </tbody>
     </table>
 
-    <button class="download-button" onclick="window.print()">🖨️ Print This Page</button>
+    <button class="download-button" onclick="window.print()">🖨️ Imprimir esta Página</button>
   </div>
 
   <div class="footer">
-    <p>G·Artisans Business Cards — Design System Phase 1 | Ready for Professional Printing</p>
-    <p>Print this page to PDF or send to your printer | All dimensions verified for standard business card production</p>
+    <p>Tarjetas de Visita G·Artisans — Sistema de Diseño Fase 1 | Listo para Impresión Profesional</p>
+    <p>Imprimir esta página como PDF o enviar a su impresor | Todas las dimensiones verificadas para producción estándar de tarjetas de visita</p>
   </div>
 </body>
 </html>
