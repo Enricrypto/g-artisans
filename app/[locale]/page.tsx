@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { ProducerShowcase } from '@/components/sections/ProducerShowcase';
+import { mockProducers } from '@/lib/mockProducers';
 
 export const metadata: Metadata = {
   title: 'G·Artisans — Marketplace de productores sostenibles Made in Europe',
@@ -10,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      {/* Additional sections will be added here */}
+      <ProducerShowcase producers={mockProducers} backgroundColor="linho" />
     </>
   );
 }
