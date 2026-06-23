@@ -39,5 +39,23 @@
   },
   "footer": {
     "copyright": "© 2026 G·Artisans · Alternative Green Energy Holdco S.L."
+  },
+  "sections": {
+    "producerShowcase": {
+      "title": "Featured Artisans",
+      "description": "Meet the sustainable producers who are part of G·Artisans.",
+      "ctaText": "Explore all producers",
+      "noProducers": "No producers available at the moment.",
+      "categories": {
+        "moda": "Sustainable Fashion",
+        "cuero": "Leather Masters",
+        "alpargatas": "Espadrilles",
+        "joyeria": "Artisan Jewellery",
+        "ceramica": "Artisan Ceramics",
+        "cosmetica": "Natural Cosmetics",
+        "hogar": "Sustainable Home",
+        "otra": "Other"
+      }
+    }
   }
 }

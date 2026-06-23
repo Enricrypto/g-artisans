@@ -39,5 +39,23 @@
   },
   "footer": {
     "copyright": "© 2026 G·Artisans · Alternative Green Energy Holdco S.L."
+  },
+  "sections": {
+    "producerShowcase": {
+      "title": "Artesanos Destacados",
+      "description": "Conoce a los productores sostenibles que forman parte de G·Artisans.",
+      "ctaText": "Ver todos los productores",
+      "noProducers": "No hay productores disponibles en este momento.",
+      "categories": {
+        "moda": "Moda Sostenible",
+        "cuero": "Maestros del Cuero",
+        "alpargatas": "Alpargatas",
+        "joyeria": "Joyería Artesanal",
+        "ceramica": "Cerámica Artesana",
+        "cosmetica": "Cosmética Natural",
+        "hogar": "Hogar Sostenible",
+        "otra": "Otro"
+      }
+    }
   }
 }
