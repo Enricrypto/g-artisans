@@ -2,13 +2,20 @@
 
 import React from 'react';
 import * as Icons from 'lucide-react';
+import * as HeroiconsOutline from '@heroicons/react/24/outline';
+import * as HeroiconsSolid from '@heroicons/react/24/solid';
 
 interface IconProps {
   /**
-   * Lucide React icon name
-   * @example 'ChevronDown', 'Menu', 'X', 'Home'
+   * Icon name (Lucide or Heroicons style)
+   * @example 'ChevronDown', 'Bars3Icon', 'XMarkIcon'
    */
-  name: keyof typeof Icons;
+  name: string;
+  /**
+   * Icon source library
+   * @default 'lucide'
+   */
+  source?: 'lucide' | 'heroicons';
   /**
    * Icon size in pixels
    * @default 24
@@ -49,15 +56,17 @@ const colorMap: Record<string, string> = {
 /**
  * Icon Component
  *
- * Wrapper around Lucide React icons with color and size props.
+ * Wrapper around Lucide React and Heroicons with color and size props.
+ * Supports both icon libraries with configurable source prop.
  *
  * @example
  * <Icon name="ChevronDown" size={24} color="naranja" />
  *
  * @example
  * <Icon
- *   name="Menu"
- *   size={32}
+ *   name="Bars3Icon"
+ *   source="heroicons"
+ *   size={24}
  *   color="noche"
  *   aria-label="Open menu"
  *   decorative={false}
@@ -65,6 +74,7 @@ const colorMap: Record<string, string> = {
  */
 export const Icon = ({
   name,
+  source = 'lucide',
   size = 24,
   color = 'currentColor',
   decorative = true,
@@ -72,24 +82,32 @@ export const Icon = ({
   'aria-hidden': ariaHidden,
   className,
 }: IconProps) => {
-  const LucideIcon = Icons[name] as React.ComponentType<any> | undefined;
+  let IconComponent: React.ComponentType<any> | undefined;
 
-  if (!LucideIcon) {
-    console.warn(`Icon "${name}" not found in lucide-react`);
+  if (source === 'heroicons') {
+    // Try solid first, then outline
+    IconComponent = (HeroiconsSolid as Record<string, any>)[name] ||
+                    (HeroiconsOutline as Record<string, any>)[name];
+  } else {
+    // Lucide (default)
+    IconComponent = (Icons as Record<string, any>)[name];
+  }
+
+  if (!IconComponent) {
+    console.warn(`Icon "${name}" not found in ${source}`);
     return null;
   }
 
   const iconColor = color === 'currentColor' ? color : colorMap[color];
 
-  return (
-    <LucideIcon
-      size={size}
-      color={iconColor}
-      className={className}
-      aria-hidden={decorative || ariaHidden}
-      aria-label={!decorative ? ariaLabel : undefined}
-    />
-  );
+  return React.createElement(IconComponent, {
+    width: size,
+    height: size,
+    color: iconColor,
+    className,
+    'aria-hidden': decorative || ariaHidden,
+    'aria-label': !decorative ? ariaLabel : undefined,
+  });
 };
 
 Icon.displayName = 'Icon';

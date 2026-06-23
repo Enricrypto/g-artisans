@@ -14,6 +14,7 @@ html {
   font-family: 'Jost', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -92,4 +93,43 @@ input[name="_gotcha"] {
   position: absolute;
   left: -9999px;
   opacity: 0;
+}
+
+/* Hero Headline Typography */
+.hero-headline {
+  font-family: 'Unbounded', 'Unbounded Variable', sans-serif;
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* Responsive scaling for hero headline */
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-headline {
+    font-size: 32px;
+  }
+}
+
+/* Mobile menu animation */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-from-top {
+  animation: slideInFromTop 200ms ease-out;
 }

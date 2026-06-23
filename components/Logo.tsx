@@ -23,7 +23,7 @@ export const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
       lg: { width: 300, height: 300, symbolSize: 100, wordmarkSize: 24 },
     };
 
-    const { width, height, symbolSize, wordmarkSize } = sizes[size];
+    const { width, height, wordmarkSize } = sizes[size];
 
     // Full version with tagline
     if (variant === 'full') {
@@ -80,7 +80,7 @@ export const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
             fill="#7A7A6E"
             textAnchor="middle"
             letterSpacing="3"
-            textTransform="uppercase"
+            style={{ textTransform: 'uppercase' }}
           >
             MADE IN EUROPE · SUSTAINABLE · HANDCRAFTED
           </text>
