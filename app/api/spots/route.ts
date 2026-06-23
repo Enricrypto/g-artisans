@@ -1,20 +1,20 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 // GET /api/spots
 // Returns available spots count
 // See Section 4.2 of docs/TRD.md
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // TODO: Query Airtable for spot count
-    const available = 50;
-    const total = 50;
+    const available = 50; // Placeholder
+    const total = 50; // Placeholder
 
     return NextResponse.json(
       {
         available,
         total,
-        full: available === 0,
+        full: available <= 0,
       },
       {
         headers: {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Header } from '@/components/layout/Header';
 
 export const metadata: Metadata = {
   title: 'G·Artisans',
@@ -10,5 +11,10 @@ interface LocaleLayoutProps {
 }
 
 export default function LocaleLayout({ children }: LocaleLayoutProps) {
-  return <main>{children}</main>;
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+    </>
+  );
 }
