@@ -29,6 +29,109 @@
     "meta": {
       "title": "Únete como productor fundador — G·Artisans",
       "description": "Solicita tu plaza como uno de los 50 productores fundadores de G·Artisans. Plazas limitadas."
+    },
+    "skipLink": "Ir al formulario",
+    "hero": {
+      "title": "Únete a G·Artisans como productor fundador",
+      "description": "Somos 50 plazas limitadas para productores sostenibles europeos. Cuéntanos sobre tu taller y por qué deberías estar aquí."
+    },
+    "form": {
+      "title": "Solicitud de productor",
+      "description": "Completa el formulario con la información de tu negocio. Revisamos cada solicitud personalmente."
+    },
+    "success": {
+      "meta": {
+        "title": "Solicitud enviada — G·Artisans",
+        "description": "Tu solicitud ha sido recibida. Te contactaremos pronto."
+      },
+      "title": "¡Solicitud recibida!",
+      "description": "Gracias por tu interés en G·Artisans. Hemos recibido tu solicitud y nos pondremos en contacto contigo en los próximos días.",
+      "nextSteps": {
+        "title": "Pasos siguientes",
+        "step1": "Revisaremos tu solicitud personalmente",
+        "step2": "Te enviaremos un correo de confirmación",
+        "step3": "Si eres seleccionado, te llamaremos para los siguientes pasos"
+      },
+      "contact": {
+        "intro": "¿Preguntas? Escríbenos a"
+      },
+      "cta": {
+        "backHome": "Volver al inicio"
+      }
+    }
+  },
+  "form.apply": {
+    "label": {
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "craftDescription": "¿Qué haces? Cuéntanos sobre tu oficio",
+      "category": "Categoría principal",
+      "country": "País",
+      "website": "Sitio web (opcional)",
+      "instagram": "Usuario de Instagram (opcional)",
+      "referral": "¿Cómo nos conociste? (opcional)",
+      "privacy": "Acepto la",
+      "privacyLink": "política de privacidad"
+    },
+    "placeholder": {
+      "fullName": "María García López",
+      "email": "maria@ejemplo.com",
+      "phone": "+34 600 123 456",
+      "craftDescription": "Cuéntanos sobre tu oficio, tus productos y lo que te hace especial...",
+      "category": "Selecciona una categoría",
+      "country": "Selecciona un país",
+      "website": "https://www.tu-tienda.com",
+      "instagram": "@tu_cuenta",
+      "referral": "¿Cómo nos conociste?"
+    },
+    "options": {
+      "category": {
+        "moda": "Moda Sostenible",
+        "cuero": "Maestros del Cuero",
+        "alpargatas": "Alpargatas",
+        "joyeria": "Joyería Artesanal",
+        "ceramica": "Cerámica Artesana",
+        "cosmetica": "Cosmética Natural",
+        "hogar": "Hogar Sostenible",
+        "otra": "Otro"
+      },
+      "country": {
+        "ES": "España",
+        "PT": "Portugal",
+        "FR": "Francia",
+        "IT": "Italia",
+        "DE": "Alemania",
+        "NL": "Países Bajos",
+        "BE": "Bélgica",
+        "PL": "Polonia",
+        "SE": "Suecia",
+        "DK": "Dinamarca",
+        "AT": "Austria",
+        "FI": "Finlandia",
+        "GR": "Grecia",
+        "HU": "Hungría",
+        "CZ": "República Checa",
+        "RO": "Rumania",
+        "EU": "Otro país europeo"
+      },
+      "referral": {
+        "instagram": "Instagram",
+        "google": "Google",
+        "recommendation": "Recomendación",
+        "press": "Prensa/Blog",
+        "event": "Evento/Conferencia",
+        "other": "Otro"
+      }
+    },
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando...",
+    "success": "¡Solicitud enviada!",
+    "successRedirect": "Redirigiendo...",
+    "errors": {
+      "title": "Error",
+      "serverError": "Ha ocurrido un error al enviar tu solicitud. Por favor, inténtalo de nuevo o escríbenos a support@g-artisans.com",
+      "rateLimit": "Has enviado demasiadas solicitudes. Por favor, espera un poco antes de intentar de nuevo."
     }
   },
   "form": {

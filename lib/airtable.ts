@@ -1,6 +1,19 @@
 // Airtable integration
 // See Section 5 of docs/TRD.md for schema details
 
+import { ApplyFormData } from './validations';
+
+// Airtable API response types
+interface AirtableRecord {
+  id: string;
+  fields: Record<string, any>;
+  createdTime: string;
+}
+
+interface AirtableResponse {
+  records: AirtableRecord[];
+}
+
 const AIRTABLE_API_KEY = process.env.AIRTABLE_API_KEY;
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
 const AIRTABLE_API_URL = 'https://api.airtable.com/v0';
@@ -45,24 +58,68 @@ export async function airtableRequest<T>(
   throw new Error('Airtable request failed after retries');
 }
 
-// Placeholder methods for Airtable operations
-export async function createProducerApplication(data: any) {
-  // TODO: Implement after form schema is finalized
-  return airtableRequest('Productores_Solicitudes', {
+// Create a new producer application record
+// Maps ApplyFormData to Airtable Productores_Solicitudes table
+export async function createProducerApplication(
+  data: ApplyFormData,
+  ipHash: string,
+): Promise<AirtableResponse> {
+  const fields = {
+    'Full Name': data.fullName,
+    'Email': data.email,
+    'Phone': data.phone,
+    'Website': data.website || null,
+    'Instagram': data.instagram ? data.instagram.replace(/^@/, '') : null,
+    'Craft Description': data.craftDescription,
+    'Category': data.category,
+    'Country': data.country,
+    'Referral': data.referral || null,
+    'Privacy Accepted': data.privacyAccepted,
+    'IP Hash': ipHash,
+    'Submitted At': new Date().toISOString(),
+    'Status': 'Pending',
+  };
+
+  return airtableRequest<AirtableResponse>('Productores_Solicitudes', {
     method: 'POST',
-    body: JSON.stringify({ fields: data }),
+    body: JSON.stringify({ records: [{ fields }] }),
   });
 }
 
+// Get available spots (approved producers vs. max capacity)
 export async function getAvailableSpots(): Promise<{ available: number; total: number }> {
-  // TODO: Implement spot counting logic
-  return { available: 50, total: 50 };
+  const total = parseInt(process.env.NEXT_PUBLIC_MAX_SPOTS || '50');
+
+  try {
+    // Query approved producers from Airtable using filterByFormula
+    const result = await airtableRequest<any>(
+      `Productores_Solicitudes?filterByFormula=%7BStatus%7D%3D%27Aprobado%27`,
+    );
+
+    const approved = result.records?.length || 0;
+    const available = Math.max(0, total - approved);
+
+    return { available, total };
+  } catch (error) {
+    console.error('Failed to fetch available spots:', error);
+    // Fallback: assume no approvals yet (conservative approach)
+    return { available: total, total };
+  }
 }
 
-export async function createBuyerInterest(email: string, locale: string) {
-  // TODO: Implement buyer waitlist registration
-  return airtableRequest('Compradores_Interesados', {
+// Create a buyer/waitlist interest record
+export async function createBuyerInterest(
+  email: string,
+  locale: string,
+): Promise<AirtableResponse> {
+  const fields = {
+    'Email': email,
+    'Idioma': locale,
+    'Registered At': new Date().toISOString(),
+  };
+
+  return airtableRequest<AirtableResponse>('Compradores_Interesados', {
     method: 'POST',
-    body: JSON.stringify({ fields: { Email: email, Idioma: locale } }),
+    body: JSON.stringify({ records: [{ fields }] }),
   });
 }

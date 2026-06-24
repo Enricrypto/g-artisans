@@ -29,6 +29,109 @@
     "meta": {
       "title": "Join as a founding producer — G·Artisans",
       "description": "Apply for your spot as one of G·Artisans' 50 founding producers. Limited spots available."
+    },
+    "skipLink": "Skip to form",
+    "hero": {
+      "title": "Join G·Artisans as a founding producer",
+      "description": "We have 50 limited spots for sustainable European producers. Tell us about your craft and why you should be here."
+    },
+    "form": {
+      "title": "Producer Application",
+      "description": "Complete the form with your business information. We review every application personally."
+    },
+    "success": {
+      "meta": {
+        "title": "Application Submitted — G·Artisans",
+        "description": "Your application has been received. We'll be in touch soon."
+      },
+      "title": "Application received!",
+      "description": "Thank you for your interest in G·Artisans. We have received your application and will contact you within a few days.",
+      "nextSteps": {
+        "title": "Next steps",
+        "step1": "We'll review your application personally",
+        "step2": "We'll send you a confirmation email",
+        "step3": "If you're selected, we'll call you to discuss next steps"
+      },
+      "contact": {
+        "intro": "Questions? Email us at"
+      },
+      "cta": {
+        "backHome": "Back to home"
+      }
+    }
+  },
+  "form.apply": {
+    "label": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "craftDescription": "What do you make? Tell us about your craft",
+      "category": "Main Category",
+      "country": "Country",
+      "website": "Website (optional)",
+      "instagram": "Instagram Handle (optional)",
+      "referral": "How did you hear about us? (optional)",
+      "privacy": "I accept the",
+      "privacyLink": "privacy policy"
+    },
+    "placeholder": {
+      "fullName": "Maria Garcia Lopez",
+      "email": "maria@example.com",
+      "phone": "+34 600 123 456",
+      "craftDescription": "Tell us about your craft, your products and what makes you special...",
+      "category": "Select a category",
+      "country": "Select a country",
+      "website": "https://www.your-store.com",
+      "instagram": "@your_account",
+      "referral": "How did you hear about us?"
+    },
+    "options": {
+      "category": {
+        "moda": "Sustainable Fashion",
+        "cuero": "Leather Masters",
+        "alpargatas": "Espadrilles",
+        "joyeria": "Artisan Jewellery",
+        "ceramica": "Artisan Ceramics",
+        "cosmetica": "Natural Cosmetics",
+        "hogar": "Sustainable Home",
+        "otra": "Other"
+      },
+      "country": {
+        "ES": "Spain",
+        "PT": "Portugal",
+        "FR": "France",
+        "IT": "Italy",
+        "DE": "Germany",
+        "NL": "Netherlands",
+        "BE": "Belgium",
+        "PL": "Poland",
+        "SE": "Sweden",
+        "DK": "Denmark",
+        "AT": "Austria",
+        "FI": "Finland",
+        "GR": "Greece",
+        "HU": "Hungary",
+        "CZ": "Czech Republic",
+        "RO": "Romania",
+        "EU": "Other European Country"
+      },
+      "referral": {
+        "instagram": "Instagram",
+        "google": "Google",
+        "recommendation": "Recommendation",
+        "press": "Press/Blog",
+        "event": "Event/Conference",
+        "other": "Other"
+      }
+    },
+    "submit": "Submit Application",
+    "submitting": "Submitting...",
+    "success": "Application submitted!",
+    "successRedirect": "Redirecting...",
+    "errors": {
+      "title": "Error",
+      "serverError": "An error occurred while submitting your application. Please try again or email us at support@g-artisans.com",
+      "rateLimit": "You have sent too many requests. Please wait a moment before trying again."
     }
   },
   "form": {

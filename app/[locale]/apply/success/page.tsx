@@ -1,5 +1,5 @@
 import { setRequestLocale } from 'next-intl/server';
-import { ApplyPageContent } from '@/components/sections/ApplyPageContent';
+import { SuccessPageContent } from '@/components/sections/SuccessPageContent';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // Static metadata based on locale
   const metadata: Record<string, { title: string; description: string }> = {
     es: {
-      title: 'Únete como productor fundador — G·Artisans',
-      description: 'Solicita tu plaza como uno de los 50 productores fundadores de G·Artisans. Plazas limitadas.',
+      title: 'Solicitud enviada — G·Artisans',
+      description: 'Tu solicitud ha sido recibida. Te contactaremos pronto.',
     },
     en: {
-      title: 'Join as a founding producer — G·Artisans',
-      description: 'Apply for your spot as one of G·Artisans\' 50 founding producers. Limited spots available.',
+      title: 'Application Submitted — G·Artisans',
+      description: 'Your application has been received. We\'ll be in touch soon.',
     },
   };
 
@@ -27,23 +27,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: meta.title,
     description: meta.description,
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `https://g-artisans.com${locale === 'en' ? '/en' : ''}/apply`,
-      type: 'website',
-    },
   };
 }
 
-export default function ApplyPage({ params }: PageProps): ReactNode {
+export default function SuccessPage({ params }: PageProps): ReactNode {
   // Note: params is now a Promise in Next.js 15+, but accessing it synchronously in Server Component works
   const locale = (params as any).locale || 'es';
   setRequestLocale(locale);
 
   return (
     <main id="main-content">
-      <ApplyPageContent locale={locale as 'es' | 'en'} />
+      <SuccessPageContent locale={locale as 'es' | 'en'} />
     </main>
   );
 }
